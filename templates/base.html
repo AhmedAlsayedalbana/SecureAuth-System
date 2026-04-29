@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SecureAuth{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    {% if session.get('token') %}
+    <nav class="navbar">
+        <span class="nav-brand">SecureAuth</span>
+        <div class="nav-links">
+            <a href="/dashboard">Dashboard</a>
+            {% if session.get('user_role') == 'Admin' %}
+                <a href="/admin">Admin Panel</a>
+            {% elif session.get('user_role') == 'Manager' %}
+                <a href="/manager">Manager Panel</a>
+            {% elif session.get('user_role') == 'User' %}
+                <a href="/profile">My Profile</a>
+            {% endif %}
+            <a href="/logout" class="btn-logout">Logout</a>
+        </div>
+    </nav>
+    {% endif %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-container">
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</body>
+</html>

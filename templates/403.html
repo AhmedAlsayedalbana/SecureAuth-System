@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}403 Access Denied - SecureAuth{% endblock %}
+
+{% block content %}
+<div class="container error-container">
+    <div class="error-code">403</div>
+    <h2>Access Denied</h2>
+    <p>You do not have permission to view this page. This area is restricted to authorized roles only.</p>
+    <a href="/dashboard" class="btn-link">Return to Dashboard</a>
+</div>
+{% endblock %}

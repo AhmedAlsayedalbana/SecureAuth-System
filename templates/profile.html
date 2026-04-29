@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}My Profile - SecureAuth{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h2>My Profile</h2>
+        <span class="role-badge role-user">User</span>
+    </div>
+
+    <div class="profile-info">
+        <div class="profile-row">
+            <span class="label">Full Name</span>
+            <span class="value">{{ user_data['name'] }}</span>
+        </div>
+        <div class="profile-row">
+            <span class="label">Email</span>
+            <span class="value">{{ user_data['email'] }}</span>
+        </div>
+        <div class="profile-row">
+            <span class="label">Role</span>
+            <span class="value">{{ user_data['role'] }}</span>
+        </div>
+        <div class="profile-row">
+            <span class="label">Member Since</span>
+            <span class="value">{{ user_data['created_at'] }}</span>
+        </div>
+    </div>
+
+    <div class="info-box">
+        <ul>
+            <li class="perm-allowed">Two-factor authentication is active on your account</li>
+            <li class="perm-denied">Cannot access Admin or Manager pages</li>
+        </ul>
+    </div>
+
+    <a href="/dashboard" class="back-link">Back to Dashboard</a>
+</div>
+{% endblock %}

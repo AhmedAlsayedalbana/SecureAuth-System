@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Register - SecureAuth{% endblock %}
+
+{% block content %}
+<div class="container auth-container">
+    <div class="auth-header">
+        <div class="auth-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#6a11cb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        </div>
+        <h2>Create Account</h2>
+        <p class="auth-subtitle">Fill in your details to get started</p>
+    </div>
+
+    <form method="POST" action="/register" class="auth-form">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password <span class="hint-text">(minimum 8 characters)</span></label>
+            <input type="password" id="password" name="password" placeholder="Choose a strong password" minlength="8" required>
+        </div>
+        <div class="form-group">
+            <label for="role">Account Role</label>
+            <select id="role" name="role" required>
+                <option value="User">User</option>
+                <option value="Manager">Manager</option>
+                <option value="Admin">Admin</option>
+            </select>
+        </div>
+        <button type="submit">Create Account</button>
+    </form>
+
+    <p class="auth-footer">Already have an account? <a href="/login" class="inline-link">Sign in</a></p>
+</div>
+{% endblock %}
