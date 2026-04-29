@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Login - SecureAuth{% endblock %}
+
+{% block content %}
+<div class="container auth-container">
+    <div class="auth-header">
+        <div class="auth-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#6a11cb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h2>Sign In</h2>
+        <p class="auth-subtitle">Enter your credentials to access your account</p>
+    </div>
+
+    <form method="POST" action="/login" class="auth-form">
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Your password" required>
+        </div>
+        <button type="submit">Sign In</button>
+    </form>
+
+    <p class="auth-footer">Don't have an account? <a href="/register" class="inline-link">Register here</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Manager Panel - SecureAuth{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h2>Manager Panel</h2>
+        <p>Logged in as: <strong>{{ user.email }}</strong> &nbsp;|&nbsp; Role: <span class="role-badge role-manager">Manager</span></p>
+    </div>
+
+    <div class="info-box">
+        <h3>Manager Access</h3>
+        <p>As a Manager, you have access to team reports and operational data.</p>
+        <ul>
+            <li class="perm-allowed">View team performance reports</li>
+            <li class="perm-allowed">Manage operational tasks</li>
+            <li class="perm-denied">Cannot access the Admin panel</li>
+            <li class="perm-denied">Cannot manage or delete users</li>
+        </ul>
+    </div>
+
+    <a href="/dashboard" class="back-link">Back to Dashboard</a>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel - SecureAuth{% endblock %}
+
+{% block content %}
+<div class="container wide-container">
+    <div class="page-header">
+        <h2>Admin Panel</h2>
+        <p>Logged in as: <strong>{{ user.email }}</strong> &nbsp;|&nbsp; Role: <span class="role-badge role-admin">Admin</span></p>
+    </div>
+
+    <h3>Registered Users</h3>
+    <table class="user-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Registered At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in all_users %}
+            <tr>
+                <td>{{ u['id'] }}</td>
+                <td>{{ u['name'] }}</td>
+                <td>{{ u['email'] }}</td>
+                <td><span class="role-badge role-{{ u['role'] | lower }}">{{ u['role'] }}</span></td>
+                <td>{{ u['created_at'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/dashboard" class="back-link">Back to Dashboard</a>
+</div>
+{% endblock %}
